@@ -1,4 +1,6 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Welcome](README.md)
+* [Chapter 1](chapter-1.md)
+* [Chapter 4](chapter-4.md)
 
