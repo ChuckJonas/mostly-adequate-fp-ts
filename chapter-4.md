@@ -4,7 +4,7 @@ description: Curry
 
 # Chapter 4
 
-A lot of the books uses a function `curry` to take a normal function and transform it to something that can be partial applied.  Unfortunately at the time of writing this, `ts-fp` does not have an equivalent  "auto-curry" function [because it's not possible to do so and retain complete types](https://github.com/gcanti/fp-ts/issues/640).  
+A lot of the books uses a function `curry` to take a normal function and transform it to something that can be partial applied.  Unfortunately at the time of writing this, `fp-ts` does not have an equivalent  "auto-curry" function [because it's not possible to do so and retain complete types](https://github.com/gcanti/fp-ts/issues/640).  
   
 You must manually write your functions in curry format:
 

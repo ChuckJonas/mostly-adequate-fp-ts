@@ -4,7 +4,7 @@ description: Intro
 
 # Chapter 1
 
-There's nothing specific to fp-ts to show in this chapter, but just to introduce the format we will be using, here's the seagull example:
+There's nothing specific to `fp-ts` to show in this chapter, but just to introduce the format we will be using, here's the seagull example:
 
 {% tabs %}
 {% tab title="book" %}
