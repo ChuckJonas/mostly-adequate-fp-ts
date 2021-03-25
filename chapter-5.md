@@ -1,4 +1,4 @@
-# Chapter 5
+# Chapter 05: Coding by Composing
 
 The book heavily relies on a function called `compose` which combines functions `Right -> Left`.  This ordering is prefer  
   

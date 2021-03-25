@@ -1,8 +1,4 @@
----
-description: Intro
----
-
-# Chapter 1
+# Chapter 01: What Ever Are We Doing?
 
 There's nothing specific to `fp-ts` to show in this chapter, but just to introduce the format we will be using, here's the seagull example:
 
