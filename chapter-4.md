@@ -8,12 +8,22 @@ You must manually write your functions in curry format:
 {% tab title="book" %}
 ```javascript
 const match = curry((what, s) => s.match(what));
+const replace = curry((what, replacement, s) => s.replace(what, replacement));
 ```
 {% endtab %}
 
 {% tab title="ts" %}
 ```typescript
 const match = (what: string | RegExp) => (s: string) => s.match(what);
+const replace = (search: string | RegExp) => (replace: string) => (s: string) =>
+  s.replace(search, replace);
+
+// here's some others that will be used later on
+const add = (a: number) => (b: number) => a + b;
+const concat = (a: string) => (b: string) => a + b;
+const toString = (a: number) => a.toString();
+const split = (search: string | RegExp) => (s: string) => s.split(search);
+const toLower = (s: string) => s.toLocaleLowerCase();
 ```
 {% endtab %}
 {% endtabs %}
@@ -41,8 +51,8 @@ const allTheChildren = map(getChildren);
 {% endtabs %}
 
 {% hint style="info" %}
-One key difference between the book and `ts-fp` is that the book uses a single generic `map` function.  In order to maintain type safety, we must use a `map` function provided for each "functor".    
+One key difference between the book and `ts-fp` is that the book uses a single generic `map` function.  In order to maintain type safety, `fp-ts` provides each functor with it's own `map` function.    
   
-In the above example, we need to map over an array, so we "fp-ts/lib/Array".
+In the above example, we need to map over an array, so we import "fp-ts/lib/Array".
 {% endhint %}
 
