@@ -17,7 +17,7 @@ shout('send in the clowns'); // "SEND IN THE CLOWNS!"
 
 {% tab title="ts" %}
 ```typescript
-import { flow, identity } from "fp-ts/lib/function";
+import { flow, identity } from "fp-ts/function";
 const toUpperCase = (x: string) => x.toUpperCase();
 const exclaim = (x: string) => `${x}!`;
 // note: order here is reversed

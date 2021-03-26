@@ -24,6 +24,7 @@ const concat = (a: string) => (b: string) => a + b;
 const toString = (a: number) => a.toString();
 const split = (search: string | RegExp) => (s: string) => s.split(search);
 const toLower = (s: string) => s.toLocaleLowerCase();
+const head = <T>(arr: T[]): T => arr[0];
 ```
 {% endtab %}
 {% endtabs %}
@@ -43,7 +44,7 @@ const allTheChildren = map(getChildren);
 
 {% tab title="ts" %}
 ```typescript
-import { map } from "fp-ts/lib/Array";
+import { map } from "fp-ts/ReadonlyArray";
 const getChildren = (x: HTMLElement) => x.childNodes;
 const allTheChildren = map(getChildren);
 ```
@@ -51,8 +52,8 @@ const allTheChildren = map(getChildren);
 {% endtabs %}
 
 {% hint style="info" %}
-One key difference between the book and `ts-fp` is that the book uses a single generic `map` function.  In order to maintain type safety, `fp-ts` provides each functor with it's own `map` function.    
+One key difference between the book and `ts-fp` is that the book uses a single generic `map` function.  In order to maintain type safety, `fp-ts` provides a specific `map` function for each functor.    
   
-In the above example, we need to map over an array, so we import "fp-ts/lib/Array".
+In the above example, we need to map over an array, so we import from`fp-ts/ReadonlyArray`.  
 {% endhint %}
 
