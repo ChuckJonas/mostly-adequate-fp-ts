@@ -66,6 +66,6 @@ const result = flockA
 {% endtabs %}
 
 {% hint style="success" %}
-We will skip the next two chapters as there is really nothing specific to `ts-fp` to cover
+We will skip the next two chapters as there is really nothing specific to `fp-ts` to cover
 {% endhint %}
 
