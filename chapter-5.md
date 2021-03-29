@@ -1,8 +1,8 @@
 # Chapter 05: Coding by Composing
 
-The book heavily relies on a function called `compose` which combines functions `Right -> Left`.  This ordering is prefer  
-  
-`fp-ts` provides the same functionality via `flow`except it operates on functions from `Left -> Right` . 
+The book heavily relies on a function called `compose` which combines functions `Right -> Left`.
+`fp-ts` provides a similar way to compose functions via `flow` except that it operates on functions
+from `Left -> Right`.
 
 {% tabs %}
 {% tab title="book" %}
