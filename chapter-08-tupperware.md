@@ -251,7 +251,7 @@ const blogPage = Handlebars.compile<Post>(blogTemplate);
 const renderPage = flow(sortBy<Post>(prop("date")), blogPage);
 
 // blog :: Params -> TaskEither Error HTML
-const blog = flow(getJSON<Post>("/posts"), TE.map(renderPage), (v) => v);
+const blog = flow(getJSON<Post>("/posts"), TE.map(renderPage));
 
 // -- Impure calling code ----------------------------------------------
 blog({})().then((e) =>
