@@ -222,18 +222,21 @@ import * as T from "fp-ts/Task";
 type Video = { title: string };
 
 const getJSON = <T>(url: string) => (params: Record<string, any>) =>
-  TE.fromTask<string, T>(
+  TE.tryCatch(
     () =>
       new Promise((resolve: (a: T) => void, reject: (e: any) => void) => {
-        $.getJSON(url, params, resolve).fail((e) => reject(e.statusText));
-      })
+        $.getJSON(url, params, resolve).fail((e) =>
+          reject(new Error(e.statusText))
+        );
+      }),
+    (reason) => new Error(String(reason))
   );
 
 pipe(
   { id: 10 },
   getJSON<Video>("/video"),
   TE.map(prop("title")),
-  TE.fold(T.of, T.of)
+  TE.fold((e) => T.of(e.message), T.of)
 );
 // Task('Family Matters ep 15')
 
@@ -247,17 +250,18 @@ const blogPage = Handlebars.compile<Post>(blogTemplate);
 // renderPage :: Posts -> HTML
 const renderPage = flow(sortBy<Post>(prop("date")), blogPage);
 
-// blog :: Params -> Task Error HTML
-const blog = flow(
-  getJSON<Post>("/posts"),
-  TE.map(renderPage),
-  TE.fold(T.of, T.of)
-);
+// blog :: Params -> TaskEither Error HTML
+const blog = flow(getJSON<Post>("/posts"), TE.map(renderPage), (v) => v);
 
 // -- Impure calling code ----------------------------------------------
-blog({})().then(
-  (error) => $("#error").html(error),
-  (page) => $("#main").html(page)
+blog({})().then((e) =>
+  pipe(
+    e,
+    E.fold(
+      (error) => $("#error").html(error.message),
+      (page) => $("#main").html(page)
+    )
+  )
 );
 ```
 {% endtab %}
