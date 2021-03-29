@@ -195,7 +195,9 @@ pipe(
 
 ## Task
 
-Task is basically just a type alias for `() => Promise`.  I recommend reading the [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3) chapter on Task to learn more.
+In `fp-ts` a Task is defined as a `() => Promise` function that will never fail.  [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3) chapter on this does a great job explaining this concept.  
+  
+The book's use of `Task` would more closely be represented using `TaskEither`
 
 {% tabs %}
 {% tab title="book" %}
@@ -213,20 +215,50 @@ getJSON('/video', { id: 10 }).map(prop('title'));
 {% tab title="ts" %}
 ```typescript
 import * as $ from "jquery";
-import { flow } from "fp-ts/function";
+import { pipe, flow } from "fp-ts/function";
+import * as TE from "fp-ts/TaskEither";
 import * as T from "fp-ts/Task";
 
-const getJSON = <T>(url: string) => (params: Record<string, any>) => () =>
-  new Promise((resolve: (a: T) => void, reject: (e: any) => void) => {
-    $.getJSON(url, params, resolve).fail(reject);
-  });
+type Video = { title: string };
 
-const getVideos = flow(
-  getJSON<{ name: string }>("/video"),
-  T.map(prop("name"))
+const getJSON = <T>(url: string) => (params: Record<string, any>) =>
+  TE.fromTask<string, T>(
+    () =>
+      new Promise((resolve: (a: T) => void, reject: (e: any) => void) => {
+        $.getJSON(url, params, resolve).fail((e) => reject(e.statusText));
+      })
+  );
+
+pipe(
+  { id: 10 },
+  getJSON<Video>("/video"),
+  TE.map(prop("title")),
+  TE.fold(T.of, T.of)
 );
-const videos = getVideos({ id: 10 })().then(console.log).catch(console.error);
+// Task('Family Matters ep 15')
 
+// -- Pure application -------------------------------------------------
+
+type Post = { date: string };
+
+// blogPage :: Posts -> HTML
+const blogPage = Handlebars.compile<Post>(blogTemplate);
+
+// renderPage :: Posts -> HTML
+const renderPage = flow(sortBy<Post>(prop("date")), blogPage);
+
+// blog :: Params -> Task Error HTML
+const blog = flow(
+  getJSON<Post>("/posts"),
+  TE.map(renderPage),
+  TE.fold(T.of, T.of)
+);
+
+// -- Impure calling code ----------------------------------------------
+blog({})().then(
+  (error) => $("#error").html(error),
+  (page) => $("#main").html(page)
+);
 ```
 {% endtab %}
 {% endtabs %}
