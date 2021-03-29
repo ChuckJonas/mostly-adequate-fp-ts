@@ -193,3 +193,43 @@ pipe(
 {% endtab %}
 {% endtabs %}
 
+## Task
+
+Task is basically just a type alias to `Promise`.  I recommend reading the [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3) chapter on Task to learn more.
+
+{% tabs %}
+{% tab title="book" %}
+```javascript
+// getJSON :: String -> {} -> Task Error JSON
+const getJSON = curry((url, params) => new Task((reject, result) => {
+  $.getJSON(url, params, result).fail(reject);
+}));
+
+getJSON('/video', { id: 10 }).map(prop('title'));
+// Task('Family Matters ep 15')
+```
+{% endtab %}
+
+{% tab title="ts" %}
+```typescript
+import * as $ from "jquery";
+import { flow } from "fp-ts/function";
+import * as T from "fp-ts/Task";
+
+const getJSON = <T>(url: string) => (params: Record<string, any>) => () =>
+  new Promise((resolve: (a: T) => void, reject: (e: any) => void) => {
+    $.getJSON(url, params, resolve).fail(reject);
+  });
+
+const getVideos = flow(
+  getJSON<{ name: string }>("/video"),
+  T.map(prop("name"))
+);
+const videos = getVideos({ id: 10 })().then(console.log).catch(console.error);
+
+```
+{% endtab %}
+{% endtabs %}
+
+
+
