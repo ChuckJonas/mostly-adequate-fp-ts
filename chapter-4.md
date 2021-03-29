@@ -52,7 +52,7 @@ const allTheChildren = map(getChildren);
 {% endtabs %}
 
 {% hint style="info" %}
-One key difference between the book and `ts-fp` is that the book uses a single generic `map` function.  In order to maintain type safety, `fp-ts` provides a specific `map` function for each functor.    
+One key difference between the book and `fp-ts` is that the book uses a single generic `map` function.  In order to maintain type safety, `fp-ts` provides a specific `map` function for each functor.    
   
 In the above example, we need to map over an array, so we import from`fp-ts/ReadonlyArray`.  
 {% endhint %}
