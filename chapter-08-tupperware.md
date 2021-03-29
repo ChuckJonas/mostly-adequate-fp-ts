@@ -195,7 +195,7 @@ pipe(
 
 ## Task
 
-Task is basically just a type alias to `Promise`.  I recommend reading the [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3) chapter on Task to learn more.
+Task is basically just a type alias for `() => Promise`.  I recommend reading the [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3) chapter on Task to learn more.
 
 {% tabs %}
 {% tab title="book" %}
