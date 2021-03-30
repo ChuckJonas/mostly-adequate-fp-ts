@@ -1,0 +1,22 @@
+{
+  "name": "mostly-adequate-fp-ts",
+  "version": "1.0.0",
+  "description": "This resource is meant to serve as a typescript \"companion\" resource to Professor [Frisby's Mostly Adequate Guide](https://github.com/MostlyAdequate/mostly-adequate-guide).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChuckJonas/mostly-adequate-fp-ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChuckJonas/mostly-adequate-fp-ts/issues"
+  },
+  "homepage": "https://github.com/ChuckJonas/mostly-adequate-fp-ts#readme",
+  "dependencies": {
+    "fp-ts": "^2.9.5"
+  }
+}
