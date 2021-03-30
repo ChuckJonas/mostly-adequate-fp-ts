@@ -195,9 +195,9 @@ pipe(
 
 ## Task
 
-In `fp-ts` a Task is defined as a `() => Promise` function that will never fail.  [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3) chapter on this does a great job explaining this concept.  
+In `fp-ts`, `Task` is defined as a `() => Promise` that **will never fail** \(see the [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3)  for an in-depth explanation\).  
   
-The book's use of `Task` would more closely be represented using `TaskEither`
+This is inconsistent with the books use of `Task`.  We will instead need to use `TaskEither`:
 
 {% tabs %}
 {% tab title="book" %}
@@ -224,7 +224,7 @@ type Video = { title: string };
 const getJSON = <T>(url: string) => (params: Record<string, any>) =>
   TE.tryCatch(
     () =>
-      new Promise((resolve: (a: T) => void, reject: (e: any) => void) => {
+      new Promise<T>((resolve, reject) => {
         $.getJSON(url, params, resolve).fail((e) =>
           reject(new Error(e.statusText))
         );
