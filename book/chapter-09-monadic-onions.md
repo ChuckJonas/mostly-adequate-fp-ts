@@ -1,6 +1,5 @@
 # Chapter 09: Monadic Onions
-
-## Chain
+## Join & Chain
 
 {% tabs %}
 {% tab title="book" %}
@@ -13,6 +12,15 @@ const safeHead = safeProp(0);
 
 // firstAddressStreet :: User -> Maybe Street
 const firstAddressStreet = compose(
+  join,
+  map(safeProp('street')),
+  join,
+  map(safeHead),
+  safeProp('addresses'),
+);
+
+// firstAddressStreet :: User -> Maybe Street
+const firstAddressStreetChained = compose(
   chain(safeProp('street')),
   chain(safeHead),
   safeProp('addresses'),
@@ -48,8 +56,18 @@ const safeProp = R.lookup
 // safeHead :: [a] -> Maybe a
 const safeHead = head;
 
-// AddressBook => Maybe({name: string, number: number})
+// firstAddressStreet :: User -> Maybe Street
 const firstAddressStreet = flow(
+  (addresses: AddressBook) =>  addresses,
+  safeProp('addresses'),
+  O.map(safeHead),
+  O.flatten,
+  O.map(safeProp('street')),
+  O.flatten
+);
+
+// firstAddressStreet :: User -> Maybe Street
+const firstAddressStreetChained = flow(
   (addresses: AddressBook) =>  addresses,
   safeProp('addresses'),
   O.chain(safeHead),
