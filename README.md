@@ -1,12 +1,17 @@
-# Welcome
+# Mostly Adequate: FP-TS Companion Guide
 
 This resource is meant to serve as a typescript "companion" resource to Professor [Frisby's Mostly Adequate Guide](https://github.com/MostlyAdequate/mostly-adequate-guide).  
+
+### 📖 [Read on Gitbook](https://app.gitbook.com/@cjonas/s/mostly-adequate-fp-ts) 📖
   
-My goal is to take the examples in provided by "Professor Frisby" and translate them to typescript using the `fp-ts` library.  I will try to provide as much context as possible on the translations, but I myself am a novice at best \(at the time of starting this guide, I'm only ~ halfway through the book\).
+## Contributing
 
-### Using this resource
+Feedback, Improvements & Additions are all very welcome!
 
-I will break out a section for each chapter.  I'd recommend reading the Frisby chapter in entirety and then come here to see how the code transposes to typescript using `fp-ts`.  
+I'm still experimenting with the workflow.  For now, you can provide improvements informally via issues or formally via a PR.  I will try keep a list of contributors to credit informal contributions.
 
+## Contributors
+
+- Christos Dimitroulas (@cdimitroulas)
 
 
