@@ -13,3 +13,7 @@ export const prop = <Path extends string>(path: Path) => <Value, Rest>(obj: Reco
 // safeProp :: Key -> {Key: a} -> Maybe a
 export const safeProp: <Key extends string>(key: Key) => <T extends Record<string, unknown>>(obj: T) => O.Option<T[Key]> = (key) => (obj) =>
   O.fromNullable(obj[key]);
+
+export const split = (splitOn: string) => (str: string) => str.split(splitOn);
+
+export const last = <T>(xs: T[]): T => xs[xs.length - 1]
