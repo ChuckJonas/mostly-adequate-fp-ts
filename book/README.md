@@ -8,5 +8,9 @@ My goal is to take the examples in provided by "Professor Frisby" and translate 
 
 I will break out a section for each chapter.  I'd recommend reading the Frisby chapter in entirety and then come here to see how the code transposes to typescript using `fp-ts`.  
 
+{% hint style="success" %}
+Solutions to the exercises can be found in the [github repo](https://github.com/ChuckJonas/mostly-adequate-fp-ts/tree/master/exercises)!
+{% endhint %}
+
 
 
