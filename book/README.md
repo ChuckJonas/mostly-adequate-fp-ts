@@ -1,8 +1,8 @@
 # Welcome
 
-This resource is meant to serve as a typescript "companion" resource to Professor [Frisby's Mostly Adequate Guide](https://github.com/MostlyAdequate/mostly-adequate-guide).  
+This resource is meant to serve as a `fp-ts` "companion" resource to Professor [Frisby's Mostly Adequate Guide](https://github.com/MostlyAdequate/mostly-adequate-guide).  
   
-Our goal is to take the examples in provided by "Professor Frisby" and translate them to typescript using the `fp-ts` library.  We will provide context on the translations as needed, but we assume you are already comfortable with typescript.
+Our goal is to take the examples provided by "Professor Frisby" and translate them to typescript using the `fp-ts` library.  We will provide context on the translations as needed, but we assume you are already comfortable with typescript.
 
 ### Using this resource
 

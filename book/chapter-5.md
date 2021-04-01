@@ -1,8 +1,6 @@
 # Chapter 05: Coding by Composing
 
-The book heavily relies on a function called `compose` which combines functions `Right -> Left`.
-`fp-ts` provides a similar way to compose functions via `flow` except that it operates on functions
-from `Left -> Right`.
+The book heavily relies on a function called `compose` which combines functions `Right -> Left`. `fp-ts` provides a similar way to compose functions via `flow` except that it operates on functions from `Left -> Right`.
 
 {% tabs %}
 {% tab title="book" %}
@@ -27,18 +25,6 @@ shout('send in the clowns'); // "SEND IN THE CLOWNS!"
 ```
 {% endtab %}
 {% endtabs %}
-
-{% hint style="info" %}
-`fp-ts` also provides a function called `pipe` which operates in a similar manor, except the first parameter acts as the input:
-
-```typescript
-let output = pipe(
-  'send in the clowns', 
-  toUpperCase, 
-  exclaim
-);  // "SEND IN THE CLOWNS!" 
-```
-{% endhint %}
 
 {% tabs %}
 {% tab title="book" %}
@@ -80,5 +66,15 @@ let output = dasherize("The world is a vampire"); // 'the-world-is-a-vampire'
 {% endtab %}
 {% endtabs %}
 
+### Pipe
 
+`fp-ts` also provides a function called `pipe` which operates in a similar manor, except the first parameter acts as the input:
+
+```typescript
+let output = pipe(
+  'send in the clowns', 
+  toUpperCase, 
+  exclaim
+);  // "SEND IN THE CLOWNS!"
+```
 
