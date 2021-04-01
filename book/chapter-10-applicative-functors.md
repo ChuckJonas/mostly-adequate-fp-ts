@@ -19,28 +19,25 @@ Task.of(renderPage).ap(Http.get('/destinations')).ap(Http.get('/events'));
 
 {% tab title="ts" %}
 ```typescript
-import { pipe } from 'fp-ts/function';
-import * as O from 'fp-ts/Option';
-import * as TE from 'fp-ts/TaskEither';
+import * as TE from "fp-ts/lib/TaskEither";
+import { pipe } from "fp-ts/lib/function";
 
-pipe(O.of(add), O.ap(O.of(2)), O.ap(O.of(3)));
+declare const Http: {
+  get: (url: string) => TE.TaskEither<Error, string>
+}
 
-// Http.get :: String -> Task Error HTML
-const Http = {
-  get: (url: string) => TE.of(url),
-};
-
-// renderPage :: String -> String -> String
 const renderPage = (destinations: string) => (events: string) => {
   return `<div>${destinations}${events}<div>`;
 };
 
-pipe(TE.of(renderPage), TE.ap(Http.get('/destinations')), TE.ap(Http.get('/events')));
-
-// Task("<div>some page with dest and events</div>")
-
-
+pipe(
+  TE.right(renderPage),
+  TE.ap(Http.get("/destinations")),
+  TE.ap(Http.get("/events"))
+);
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
