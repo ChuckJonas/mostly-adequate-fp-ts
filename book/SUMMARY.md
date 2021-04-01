@@ -7,4 +7,5 @@
 * [Chapter 06: Example Application](chapter-06-example-application.md)
 * [Chapter 08: Tupperware](chapter-08-tupperware.md)
 * [Chapter 09: Monadic Onions](chapter-09-monadic-onions.md)
+* [Chapter 10: Applicative Functors](chapter-10-applicative-functors.md)
 
