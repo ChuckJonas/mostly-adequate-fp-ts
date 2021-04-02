@@ -1,7 +1,7 @@
 # Chapter 04: Currying
 
-A lot of the books uses a function `curry` to take a normal function and transform it to something that can be partial applied.  Unfortunately at the time of writing this, `fp-ts` does not have an equivalent  "auto-curry" function [because it's not possible to do so and retain complete types](https://github.com/gcanti/fp-ts/issues/640).  
-  
+The book uses a function `curry` to transform a regular function it to something that can be partial applied. Unfortunately, `fp-ts` does not have an equivalent "auto-curry" function [because it's not possible to do so and retain complete types](https://github.com/gcanti/fp-ts/issues/640).
+
 You must manually write your functions in curry format:
 
 {% tabs %}
@@ -29,9 +29,9 @@ const head = <T>(arr: T[]): T => arr[0];
 {% endtab %}
 {% endtabs %}
 
-Using these functions remains the same, you just lose the flexibility of calling it either way.
+Using these functions remains the same; you just lose the flexibility of calling it either way.
 
-### Map
+## Map
 
 {% tabs %}
 {% tab title="book" %}
@@ -52,8 +52,8 @@ const allTheChildren = map(getChildren);
 {% endtabs %}
 
 {% hint style="info" %}
-One key difference between the book and `fp-ts` is that the book uses a single generic `map` function.  In order to maintain type safety, `fp-ts` provides a specific `map` function for each functor.    
-  
-In the above example, we need to map over an array, so we import from`fp-ts/ReadonlyArray`.  
+One key difference between the book and `fp-ts` is that the book uses a single generic `map` function. In order to maintain type safety, `fp-ts` provides a specific `map` functions for each functor.
+
+In the above example, we need to map over an array, so we import from`fp-ts/ReadonlyArray`.
 {% endhint %}
 

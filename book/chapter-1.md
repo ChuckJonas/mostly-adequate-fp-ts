@@ -1,6 +1,6 @@
 # Chapter 01: What Ever Are We Doing?
 
-There's nothing specific to `fp-ts` to show in this chapter, but just to introduce the format we will be using, here's the seagull example:
+There's nothing specific to `fp-ts` to show in this chapter, but here is the "seagull example" to introduce the form we will use in this guide:
 
 {% tabs %}
 {% tab title="book" %}
@@ -66,6 +66,6 @@ const result = flockA
 {% endtabs %}
 
 {% hint style="success" %}
-We will skip the next two chapters as there is really nothing specific to `fp-ts` to cover
+We will skip the next two chapters as there is nothing specific to `fp-ts` to cover
 {% endhint %}
 
