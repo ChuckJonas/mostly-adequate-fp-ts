@@ -5,7 +5,7 @@
 {% hint style="info" %}
  The book often uses the "Point" style in its examples.  
 
-```text
+```javascript
 Container.of('bombs').map(append(' away')).map(prop('length')); 
 // Container(10)
 ```
