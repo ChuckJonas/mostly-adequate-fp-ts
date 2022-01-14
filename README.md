@@ -2,7 +2,7 @@
 
 This resource is meant to serve as a typescript "companion" resource to Professor [Frisby's Mostly Adequate Guide](https://github.com/MostlyAdequate/mostly-adequate-guide).  
 
-### 📖 [Read on Gitbook](https://app.gitbook.com/@cjonas/s/mostly-adequate-fp-ts) 📖
+### 📖 [Read on Gitbook](https://cjonas.gitbook.io/mostly-adequate-fp-ts/) 📖
   
 ## Contributing
 
