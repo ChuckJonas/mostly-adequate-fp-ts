@@ -208,7 +208,7 @@ pipe(
 
 ## Task
 
-In `fp-ts`, `Task` is defined as a `() => Promise` that **will never fail** \(see the [Practical Guide to fp-ts](https://rlee.dev/writing/practical-guide-to-fp-ts-part-3) for an in-depth explanation\).
+In `fp-ts`, `Task` is defined as a `() => Promise` that **will never fail** \(see the [Practical Guide to fp-ts](https://rlee.dev/practical-guide-to-fp-ts-part-3) for an in-depth explanation\).
 
 This is inconsistent with the books use of `Task`. We will instead need to use `TaskEither`:
 
